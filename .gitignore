@@ -1,0 +1,19 @@
+# Dependencies
+/node_modules
+
+# System Files (File sampah bawaan OS)
+.DS_Store
+Thumbs.db
+
+# Editor & IDE Config
+.vscode/
+.idea/
+
+# Environment Variables (jika nanti pakai API Key/Secret)
+.env
+.env.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

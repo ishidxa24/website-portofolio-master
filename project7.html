@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 7 - NusantaraWordCraft</title>
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Wadah Iframe */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 650px; 
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Skala asli 1.0 agar tampilan canvas presisi */
+        @media (min-width: 768px) {
+            .iframe-container iframe {
+                transform: scale(1.0); 
+                transform-origin: center center;
+            }
+        }
+    </style>
+</head>
+<body class="bg-brand-off-white font-sans text-brand-dark-blue">
+
+    <!-- Container diperlebar ke max-w-7xl agar lebih lapang -->
+    <main class="container mx-auto px-6 py-10 max-w-7xl">
+        
+        <!-- Tombol Kembali ke Beranda -->
+        <a href="index.html" class="inline-block mb-8 bg-red-500 text-white font-bold py-2 px-6 rounded-lg hover:opacity-90 transition-opacity">
+            &larr; Back to Home
+        </a>
+
+        <!-- Detail Proyek -->
+        <h1 class="text-3xl md:text-5xl font-black mb-4 text-brand-dark-blue">NusantaraWordCraft</h1>
+        
+        <p class="text-lg md:text-xl text-brand-mid-blue mb-4 font-semibold">
+            An Interactive Pixel Art Web Game based on Nusantara-themed Word Processing & Crafting.
+        </p>
+
+        <p class="text-base text-gray-600 mb-6">
+            <strong>NusantaraWordCraft</strong> adalah sebuah proyek <em>Front-End Web Game</em> berbasis <em>pixel art</em> interaktif yang dirancang untuk memberikan pengalaman bermain gim secara langsung melalui peramban (browser). Proyek ini berfokus pada mekanisme olah kata dan pembuatan konten bertema kebudayaan Nusantara.
+        </p>
+
+        <!-- Poin-poin Fitur Utama & Tech Stack -->
+        <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm mb-8">
+            <h3 class="font-bold text-lg text-brand-dark-blue mb-3">Key Highlights & Tech Stack:</h3>
+            <ul class="list-disc list-inside space-y-2 text-gray-600 text-sm md:text-base">
+                <li><strong>Interactive Gameplay:</strong> Menggunakan elemen Canvas / JavaScript untuk logika permainan yang responsif dan interaktif secara real-time.</li>
+                <li><strong>Nusantara Theme:</strong> Mengangkat visual gaya <em>pixel art</em> dengan aset latar belakang dan audio bertema kearifan lokal.</li>
+                <li><strong>Modern Deployment:</strong> Di-build dan di-deploy secara otomatis melalui Vercel CI/CD pipeline.</li>
+                <li><strong>Technologies Used:</strong> HTML5 Canvas, Modern JavaScript (ES6+), CSS3 / Tailwind CSS.</li>
+            </ul>
+        </div>
+
+        <!-- Tombol Akses GitHub & Live Web Vercel -->
+        <div class="flex flex-wrap gap-4 mb-10">
+            <a href="https://nusantara-word-craft.vercel.app" target="_blank" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-md">
+                Visit Live Web Fullscreen
+            </a>
+            <a href="https://github.com/ishidxa24/NusantaraWordCraft" target="_blank" class="bg-gray-900 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors flex items-center gap-2 shadow-md">
+                View Source Code (GitHub)
+            </a>
+        </div>
+
+        <!-- Web App Interaktif -->
+        <h2 class="text-2xl font-bold mb-4">Interactive Web Preview</h2>
+        <div class="iframe-container rounded-xl border border-gray-200 shadow-2xl mb-12">
+            <iframe src="https://nusantara-word-craft.vercel.app" title="NusantaraWordCraft Live Demo"></iframe>
+        </div>
+
+        <!-- Screenshot Static Backup -->
+        <h2 class="text-2xl font-bold mb-4">Screenshot Preview</h2>
+        <div class="w-full overflow-hidden rounded-xl border border-gray-200 shadow-xl bg-white mb-10">
+            <img src="./image/Nusantara/Nusantara.png" alt="Preview NusantaraWordCraft" class="w-full object-cover">
+        </div>
+        
+    </main>
+
+</body>
+</html>
