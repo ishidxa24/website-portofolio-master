@@ -1,6 +1,26 @@
 {
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.11",
-    "tailwindcss": "^4.1.11"
-  }
+    "@tailwindcss/cli": "^4.3.3",
+    "animejs": "^4.5.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "name": "website-portofolio-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishidxa24/website-portofolio-master.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ishidxa24/website-portofolio-master/issues"
+  },
+  "homepage": "https://github.com/ishidxa24/website-portofolio-master#readme"
 }

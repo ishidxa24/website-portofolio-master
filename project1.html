@@ -3,52 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project: Letterboxd Concept | Adi Kusuma</title>
-    <link rel="stylesheet" href="./src/output.css">
+    <title>Quest Details: Letterboxd App Concept</title>
+
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <!-- Memanggil CSS Eksternal dari Folder Style -->
+    <link rel="stylesheet" href="./style/style.css">
+
+    <!-- Font SAO-style (Ubuntu) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-brand-off-white font-sans text-brand-dark-blue">
+<body class="min-h-screen text-gray-100 p-4 md:p-8 flex justify-center items-start pt-12 md:pt-20">
 
-    <main>
-        <header class="container max-w-5xl mx-auto px-6 py-8">
-            <nav>
-                <a href="index.html" class="inline-block bg-white text-brand-dark-blue font-bold py-2 px-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    &larr; Kembali ke Halaman Utama
-                </a>
-            </nav>
-        </header>
+    <!-- Jendela Utama Detail Proyek -->
+    <main class="sao-window w-full max-w-6xl p-6 md:p-10 rounded-sm shadow-2xl relative animate-fade-in-sao">
+        
+        <!-- Navigasi Kembali -->
+        <a href="index.html" class="inline-flex items-center gap-2 text-orange-400 hover:text-white font-bold uppercase tracking-widest text-xs mb-8 transition-colors border border-orange-500/50 hover:border-white px-4 py-2 bg-orange-900/20">
+            <span>&#9664;</span> Abort Mission (Kembali)
+        </a>
 
-        <section class="container max-w-5xl mx-auto px-6 py-4">
+        <!-- Header Judul Proyek -->
+        <div class="border-b border-gray-500/50 pb-6 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+                <h1 class="text-3xl md:text-5xl font-bold tracking-wider text-white mb-2">Letterboxd App Concept</h1>
+                <p class="text-gray-400 text-sm tracking-widest uppercase">UI/UX Redesign Concept</p>
+            </div>
+            <div class="px-4 py-2 bg-orange-600/20 border border-orange-500 text-orange-400 text-xs font-bold tracking-widest uppercase text-center shrink-0 shadow-[0_0_10px_rgba(249,115,22,0.3)]">
+                Status: Cleared
+            </div>
+        </div>
 
-            <h1 class="text-5xl lg:text-7xl font-black text-brand-dark-blue">Letterboxd App Concept</h1>
-            <p class="text-xl text-brand-mid-blue mt-2">A UI/UX Design for a movie social discovery application.</p>
-            
-            <div class="my-10">
-                <h2 class="text-3xl font-bold mb-4">Prototipe Interaktif</h2>
-                <p class="mb-4 text-brand-mid-blue">Anda bisa klik, scroll, dan berinteraksi dengan prototipe di bawah ini.</p>
+        <!-- Konten Proyek: 2 Kolom -->
+        <div class="flex flex-col lg:flex-row gap-10">
+
+            <!-- KOLOM KIRI: Galeri Gambar (Bisa di-scroll) -->
+            <!-- Daftar 6 gambar sesuai dengan folder letterboxd Anda -->
+            <div class="lg:w-3/5 flex flex-col gap-6 max-h-[600px] overflow-y-auto pr-3">
                 
-                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" class="w-full h-[450px] rounded-lg shadow-xl bg-white" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FtdX4Sze3ZWqSpVLUtzyKKP%2FLA-pert-6%3Fpage-id%3D0%253A1%26node-id%3D86-734%26m%3Ddraw%26scaling%3Dmin-zoom%26content-scaling%3Dfixed%26starting-point-node-id%3D86%253A725%26t%3DARSPMUWz1Z2KykjW-1" allowfullscreen></iframe>
-            </div>
-
-            <div class="my-10 max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-4">Tentang Proyek Ini</h2>
-                <p class="text-lg text-brand-mid-blue leading-relaxed">
-                    Proyek ini adalah eksplorasi desain ulang untuk aplikasi Letterboxd, dengan fokus pada penyederhanaan alur pengguna dan modernisasi antarmuka. Tujuannya adalah untuk menciptakan pengalaman yang lebih intuitif bagi pengguna dalam menemukan film baru, membaca ulasan, dan berinteraksi dengan komunitas. Desain ini dibuat menggunakan Figma dengan memperhatikan prinsip-prinsip desain UI/UX modern.
-                </p>
-            </div>
-            
-            <div class="my-10">
-                <h2 class="text-3xl font-bold mb-4 text-center">Tampilan Lainnya</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
-                    <img src="./image/letterboxd/Discover.png" alt="Discover Screen" class="rounded-lg shadow-md w-full h-96 object-cover object-top border hover:shadow-xl transition-shadow">
-                    <img src="./image/letterboxd/Reviews Movies.png" alt="Reviews Screen" class="rounded-lg shadow-md w-full h-96 object-cover object-top border hover:shadow-xl transition-shadow">
-                    <img src="./image/letterboxd/profile account.png" alt="Profile Screen" class="rounded-lg shadow-md w-full h-96 object-cover object-top border hover:shadow-xl transition-shadow">
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/letterboxd/opening.png" alt="Letterboxd Opening Screen" class="w-full h-auto object-contain border border-gray-800">
                 </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/letterboxd/Feed.png" alt="Letterboxd Feed Screen" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/letterboxd/Discover.png" alt="Letterboxd Discover Screen" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/letterboxd/Reviews Movies.png" alt="Letterboxd Reviews Screen" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <!-- Cek kembali nama file ini di komputer Anda apakah sudah sama persis -->
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/letterboxd/Reviews Movies Bagian more.png" alt="Letterboxd More Reviews Screen" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/letterboxd/profile account.png" alt="Letterboxd Profile Screen" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+                
             </div>
 
-        </section>
+            <!-- KOLOM KANAN: Detail Penjelasan -->
+            <div class="lg:w-2/5 flex flex-col gap-8">
+
+                <!-- Latar Belakang / Penjelasan -->
+                <div>
+                    <h3 class="text-lg font-bold text-white tracking-widest uppercase mb-4 flex items-center gap-3">
+                        <span class="w-2 h-2 bg-orange-500 transform rotate-45 shadow-[0_0_5px_#f97316]"></span>
+                        Mission Briefing
+                    </h3>
+                    <p class="text-gray-300 text-sm leading-relaxed text-justify bg-gray-900/50 p-4 border-l-2 border-orange-500">
+                        Proyek ini merupakan sebuah eksplorasi desain ulang (redesign) untuk antarmuka aplikasi Letterboxd. Fokus utama pada desain ini adalah menyegarkan pengalaman pengguna dalam mencari film (discover), membaca ulasan, dan menelusuri aktivitas teman (feed), dengan tetap mempertahankan identitas warna dan nuansa sinematik khas Letterboxd yang gelap dan modern.
+                    </p>
+                </div>
+
+                <!-- Fitur Utama Proyek -->
+                <div>
+                    <h3 class="text-lg font-bold text-white tracking-widest uppercase mb-4 flex items-center gap-3">
+                        <span class="w-2 h-2 bg-orange-500 transform rotate-45 shadow-[0_0_5px_#f97316]"></span>
+                        Key Features
+                    </h3>
+                    <ul class="text-sm text-gray-300 space-y-2 list-disc pl-5">
+                        <li>Tampilan *Feed* dan penemuan film (*Discover*) yang lebih interaktif dan tertata.</li>
+                        <li>Desain halaman ulasan (*Reviews*) yang lebih mudah dibaca dan dieksplorasi.</li>
+                        <li>Profil pengguna yang diperbarui untuk menonjolkan film favorit dan aktivitas sinematik.</li>
+                    </ul>
+                </div>
+
+                <!-- Alat / Skill yang digunakan -->
+                <div>
+                    <h3 class="text-lg font-bold text-white tracking-widest uppercase mb-4 flex items-center gap-3">
+                        <span class="w-2 h-2 bg-orange-500 transform rotate-45 shadow-[0_0_5px_#f97316]"></span>
+                        Equipped Tools
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-600 text-xs text-white font-medium tracking-wide hover:bg-orange-600/50 hover:border-orange-500 transition-colors cursor-default">Figma</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-600 text-xs text-white font-medium tracking-wide hover:bg-orange-600/50 hover:border-orange-500 transition-colors cursor-default">UI Redesign</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-600 text-xs text-white font-medium tracking-wide hover:bg-orange-600/50 hover:border-orange-500 transition-colors cursor-default">App Concept</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </main>
 
 </body>

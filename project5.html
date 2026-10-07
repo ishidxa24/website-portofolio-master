@@ -3,73 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 5 - Dicoding Remake Design Asah</title>
-    <link rel="stylesheet" href="./src/output.css">
+    <title>Quest Details: Dicoding Remake Design Asah</title>
+
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <!-- Memanggil CSS Eksternal dari Folder Style -->
+    <link rel="stylesheet" href="./style/style.css">
+
+    <!-- Font SAO-style (Ubuntu) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-brand-off-white font-sans text-brand-dark-blue">
+<body class="min-h-screen text-gray-100 p-4 md:p-8 flex justify-center items-start pt-12 md:pt-20">
 
-    <main class="container mx-auto px-6 py-10 max-w-5xl">
+    <!-- Jendela Utama Detail Proyek -->
+    <main class="sao-window w-full max-w-6xl p-6 md:p-10 rounded-sm shadow-2xl relative animate-fade-in-sao">
         
-        
-        <a href="index.html" class="inline-block mb-8 bg-red-500 text-white font-bold py-2 px-6 rounded-lg hover:opacity-90 transition-opacity">
-            &larr; Back to Home
+        <!-- Navigasi Kembali -->
+        <a href="index.html" class="inline-flex items-center gap-2 text-orange-400 hover:text-white font-bold uppercase tracking-widest text-xs mb-8 transition-colors border border-orange-500/50 hover:border-white px-4 py-2 bg-orange-900/20">
+            <span>&#9664;</span> Abort Mission (Kembali)
         </a>
 
-        
-        <h1 class="text-3xl md:text-5xl font-black mb-4 text-brand-dark-blue">Dicoding Remake Design Asah</h1>
-        <p class="text-lg md:text-xl text-brand-mid-blue mb-4">
-            A UI/UX redesign and interactive prototype project based on the Dicoding Asah platform, focusing on enhancing user learning experience and navigation flow.
-        </p>
-        <p class="text-base text-gray-600 mb-10">
-            Proyek ini merancang ulang antarmuka platform edukasi dengan menyederhanakan alur masuk (login/register), menyajikan peta belajar (roadmap) yang lebih intuitif, serta menambahkan fitur pendukung seperti chatbot dan pengaturan profil pengguna.
-        </p>
-
-       
-        <h2 class="text-2xl font-bold mb-4">Interactive Prototype</h2>
-        <div class="w-full overflow-hidden rounded-xl border border-gray-200 shadow-lg bg-white mb-16">
-            <iframe width="100%" height="600" src="https://embed.figma.com/design/qc9XPw6WPhxZCskgjxeGxs/Dicoding-Remake-Design-Asah?node-id=0-1&embed-host=share" allowfullscreen></iframe>
-        </div>
-
-        
-        <h2 class="text-2xl font-bold mb-6">Design Screens & Features</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            <div class="bg-white p-4 rounded-xl shadow-md border">
-                <img src="./image/Dicoding Asah Project/Login.png" alt="Login Page" class="rounded-lg w-full object-cover mb-2 border">
-                <p class="font-semibold text-center text-sm">Halaman Login</p>
+        <!-- Header Judul Proyek -->
+        <div class="border-b border-gray-500/50 pb-6 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+                <h1 class="text-3xl md:text-5xl font-bold tracking-wider text-white mb-2">Dicoding Remake Design Asah</h1>
+                <p class="text-gray-400 text-sm tracking-widest uppercase">UI/UX Redesign Concept & Prototype</p>
             </div>
-            <div class="bg-white p-4 rounded-xl shadow-md border">
-                <img src="./image/Dicoding Asah Project/Register.png" alt="Register Page" class="rounded-lg w-full object-cover mb-2 border">
-                <p class="font-semibold text-center text-sm">Halaman Register</p>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow-md border">
-                <img src="./image/Dicoding Asah Project/Main Page Sebelum Login.png" alt="Main Page Sebelum Login" class="rounded-lg w-full object-cover mb-2 border">
-                <p class="font-semibold text-center text-sm">Main Page (Sebelum Login)</p>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow-md border">
-                <img src="./image/Dicoding Asah Project/Main Page Sesudah Login.png" alt="Main Page Sesudah Login" class="rounded-lg w-full object-cover mb-2 border">
-                <p class="font-semibold text-center text-sm">Main Page (Sesudah Login)</p>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow-md border">
-                <img src="./image/Dicoding Asah Project/Learning Path.png" alt="Learning Path" class="rounded-lg w-full object-cover mb-2 border">
-                <p class="font-semibold text-center text-sm">Learning Path</p>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow-md border">
-                <img src="./image/Dicoding Asah Project/Roadmap 1.png" alt="Roadmap 1" class="rounded-lg w-full object-cover mb-2 border">
-                <p class="font-semibold text-center text-sm">Roadmap Belajar</p>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow-md border">
-                <img src="./image/Dicoding Asah Project/Chatbot.png" alt="Chatbot Feature" class="rounded-lg w-full object-cover mb-2 border">
-                <p class="font-semibold text-center text-sm">Fitur Chatbot</p>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow-md border">
-                <img src="./image/Dicoding Asah Project/Setting.png" alt="Setting Page" class="rounded-lg w-full object-cover mb-2 border">
-                <p class="font-semibold text-center text-sm">Halaman Pengaturan (Setting)</p>
+            <div class="px-4 py-2 bg-orange-600/20 border border-orange-500 text-orange-400 text-xs font-bold tracking-widest uppercase text-center shrink-0 shadow-[0_0_10px_rgba(249,115,22,0.3)]">
+                Status: Cleared
             </div>
         </div>
-        
+
+        <!-- Konten Proyek: 2 Kolom -->
+        <div class="flex flex-col lg:flex-row gap-10">
+
+            <!-- KOLOM KIRI: Galeri Gambar (Bisa di-scroll) -->
+            <!-- Daftar 13 gambar sesuai urutan alur aplikasi -->
+            <div class="lg:w-3/5 flex flex-col gap-6 max-h-[600px] overflow-y-auto pr-3">
+                
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/Dicoding Asah Project/Main Page Sebelum Login.png" alt="Main Page Sebelum Login" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/Dicoding Asah Project/Login.png" alt="Login Screen" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/Dicoding Asah Project/Register.png" alt="Register Screen" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/Dicoding Asah Project/Main Page Sesudah Login.png" alt="Main Page Sesudah Login" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/Dicoding Asah Project/Learning Path Sebelum Login.png" alt="Learning Path Sebelum Login" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/Dicoding Asah Project/Learning Path.png" alt="Learning Path" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/Dicoding Asah Project/Learning Path-1.png" alt="Learning Path Detail" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/Dicoding Asah Project/Roadmap 1.png" alt="Roadmap 1" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/Dicoding Asah Project/Roadmap 2.png" alt="Roadmap 2" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/Dicoding Asah Project/Roadmap 3.png" alt="Roadmap 3" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/Dicoding Asah Project/Chatbot.png" alt="Chatbot Feature" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <div class="sao-card p-2 border border-gray-600 bg-black/40">
+                    <img src="./image/Dicoding Asah Project/Setting.png" alt="Setting Page" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+                
+            </div>
+
+            <!-- KOLOM KANAN: Detail Penjelasan -->
+            <div class="lg:w-2/5 flex flex-col gap-8">
+
+                <!-- Latar Belakang / Penjelasan -->
+                <div>
+                    <h3 class="text-lg font-bold text-white tracking-widest uppercase mb-4 flex items-center gap-3">
+                        <span class="w-2 h-2 bg-orange-500 transform rotate-45 shadow-[0_0_5px_#f97316]"></span>
+                        Mission Briefing
+                    </h3>
+                    <p class="text-gray-300 text-sm leading-relaxed text-justify bg-gray-900/50 p-4 border-l-2 border-orange-500">
+                        Proyek ini merupakan konsep perancangan ulang (remake) dan pengembangan antarmuka untuk platform edukasi pemrograman. Fokus utamanya adalah merapikan alur navigasi pengguna mulai dari halaman awal, manajemen akun, pemilihan jalur belajar (*learning path*), peta kompetensi (*roadmap*), hingga integrasi fitur bantuan interaktif seperti *chatbot* dan pengaturan profil.
+                    </p>
+                </div>
+
+                <!-- Fitur Utama Proyek -->
+                <div>
+                    <h3 class="text-lg font-bold text-white tracking-widest uppercase mb-4 flex items-center gap-3">
+                        <span class="w-2 h-2 bg-orange-500 transform rotate-45 shadow-[0_0_5px_#f97316]"></span>
+                        Key Features
+                    </h3>
+                    <ul class="text-sm text-gray-300 space-y-2 list-disc pl-5">
+                        <li>Alur autentikasi bersih (*Login* dan *Register*).</li>
+                        <li>Eksplorasi *Learning Path* dan visualisasi *Roadmap* belajar yang terstruktur.</li>
+                        <li>Fitur asisten cerdas berbasis *Chatbot* untuk membantu pengguna.</li>
+                        <li>Halaman pengaturan (*Setting*) akun yang intuitif.</li>
+                    </ul>
+                </div>
+
+                <!-- Alat / Skill yang digunakan -->
+                <div>
+                    <h3 class="text-lg font-bold text-white tracking-widest uppercase mb-4 flex items-center gap-3">
+                        <span class="w-2 h-2 bg-orange-500 transform rotate-45 shadow-[0_0_5px_#f97316]"></span>
+                        Equipped Tools
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-600 text-xs text-white font-medium tracking-wide hover:bg-orange-600/50 hover:border-orange-500 transition-colors cursor-default">Figma</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-600 text-xs text-white font-medium tracking-wide hover:bg-orange-600/50 hover:border-orange-500 transition-colors cursor-default">UI/UX Redesign</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-600 text-xs text-white font-medium tracking-wide hover:bg-orange-600/50 hover:border-orange-500 transition-colors cursor-default">User Journey</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </main>
 
 </body>

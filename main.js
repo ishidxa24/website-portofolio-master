@@ -1,24 +1,73 @@
-// Menunggu seluruh halaman (termasuk gambar) selesai dimuat
-window.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', () => {
+    // === ANIMASI 1: MENU UTAMA (HERO) ===
+    const tl = anime.timeline({
+        easing: 'easeOutExpo'
+    });
 
-    // Ambil elemen loader dan konten utama berdasarkan ID-nya
-    const loader = document.getElementById('loader');
-    const mainContent = document.getElementById('main-content');
+    tl.add({
+        targets: '#sao-container',
+        opacity: [0, 1],
+        scale: [0.9, 1],
+        duration: 800
+    })
+    .add({
+        targets: '.sao-element',
+        opacity: [0, 1],
+        translateY: [-20, 0],
+        delay: anime.stagger(150),
+        duration: 600
+    }, '-=400')
+    .add({
+        targets: '.sao-skill',
+        opacity: [0, 1],
+        translateX: [-30, 0],
+        delay: anime.stagger(100),
+        duration: 500
+    }, '-=200')
+    .add({
+        targets: '.sao-action',
+        opacity: [0, 1],
+        translateY: [20, 0],
+        delay: anime.stagger(100),
+        duration: 500
+    }, '-=200');
 
-    // Atur waktu tunggu sebelum menyembunyikan loader (2000ms = 2 detik)
-    setTimeout(() => {
-        // 1. Buat loader menjadi transparan (memulai animasi fade-out)
-        loader.style.opacity = '0';
+    // === ANIMASI 2: SCROLL UNTUK QUEST LOG (PROYEK) ===
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // Jika bagian "Quest Log" mulai terlihat di layar
+            if (entry.isIntersecting) {
+                
+                // Animasikan Judul masuk dari kiri
+                anime({
+                    targets: '.sao-quest-title',
+                    opacity: [0, 1],
+                    translateX: [-50, 0],
+                    duration: 800,
+                    easing: 'easeOutExpo'
+                });
+                
+                // Animasikan Kartu Proyek masuk dari bawah satu per satu
+                anime({
+                    targets: '.sao-card',
+                    opacity: [0, 1],
+                    translateY: [50, 0],
+                    delay: anime.stagger(150),
+                    duration: 800,
+                    easing: 'easeOutExpo'
+                });
 
-        // 2. Tampilkan konten utama dengan membuatnya tidak transparan (memulai animasi fade-in)
-        mainContent.style.opacity = '1';
+                // Hentikan pantauan agar animasi tidak berulang setiap kali di-scroll
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { 
+        threshold: 0.1 // Animasi dimulai saat 10% bagian teratas masuk ke layar
+    });
 
-        // 3. Setelah animasi fade-out selesai (1 detik), sembunyikan loader sepenuhnya
-        //    agar tidak menghalangi interaksi dengan konten di bawahnya.
-        setTimeout(() => {
-            loader.style.display = 'none';
-        }, 1000); // Durasi ini harus sama dengan 'duration-1000' di kelas CSS
-
-    }, 2000);
-
+    // Mulai pantau elemen quests
+    const questsSection = document.getElementById('quests');
+    if(questsSection) {
+        observer.observe(questsSection);
+    }
 });
