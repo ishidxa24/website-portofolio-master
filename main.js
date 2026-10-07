@@ -33,6 +33,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// Fungsi Aman untuk Membuka Gmail (Terhindar dari Bot Scraper)
+function openGmail() {
+    const user = "adikusumanyxly";
+    const domain = "gmail.com";
+    const email = `${user}@${domain}`;
+    const subject = encodeURIComponent("Inquiry from Portfolio");
+    const body = encodeURIComponent("Halo Adi, saya tertarik dengan portofolio Anda.");
+    
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`, '_blank');
+}
+
+// Fungsi Aman untuk Membuka WhatsApp (Terhindar dari Bot Scraper)
+function openWhatsApp() {
+    const phone = "6287782869155";
+    const text = encodeURIComponent("Halo Adi, saya tertarik dengan portofolio Anda.");
+    window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+}
+
 // Fungsi Animasi Utama Portofolio SAO
 function startMainPortfolioAnimation() {
     const mainTimeline = anime.timeline({
