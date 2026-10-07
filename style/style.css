@@ -80,98 +80,82 @@ body {
     background: rgba(249, 115, 22, 1);
 }
 
-/* Pengaturan Cetak PDF / Print Styling */
-@media print {
-    body {
-        background-color: #000000 !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-    
-    /* Memastikan jendela SAO tetap mempertahankan warna gelap dan border oranye saat dicetak */
-    .sao-window {
-        background-color: #0b0f19 !important;
-        border-color: #f97316 !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-}
-
 /* === PENGATURAN KHUSUS CETAK PDF / PRINT === */
+@/* === PENGATURAN CETAK PDF: PERTAHANKAN TEMA GELAP SAO === */
 @media print {
-    /* 1. Reset halaman menjadi putih/bersih dan hilangkan animasi */
-    body {
-        background-color: #ffffff !important;
-        color: #111827 !important;
-        font-family: 'Ubuntu', sans-serif;
-        margin: 0;
-        padding: 20px;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+    /* 1. Pertahankan latar belakang gelap khas SAO */
+    html, body {
+        background-color: #111827 !important;
+        background-image: radial-gradient(circle at center, #374151, #111827, #030712) !important;
+        color: #f3f4f6 !important;
+        font-family: 'Ubuntu', sans-serif !important;
+        margin: 0 !important;
+        padding: 20px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 
-    /* 2. Sembunyikan elemen layar loading */
-    #sao-loader {
+    /* 2. Sembunyikan loading dan tombol interaktif yang tidak perlu di PDF */
+    #sao-loader, .sao-action, button, a.sao-btn {
         display: none !important;
     }
 
-    /* 3. Ubah Jendela Profil Utama agar pas di halaman pertama PDF */
-    section.min-h-screen {
-        min-height: auto !important;
-        height: auto !important;
-        padding: 0 !important;
-        margin-bottom: 40px;
-        page-break-after: always; /* Jeda halaman setelah profil */
-    }
-
+    /* 3. Pertahankan Jendela Hologram SAO tetap gelap dan transparan */
     .sao-window {
         opacity: 1 !important;
         transform: none !important;
-        background-color: #ffffff !important;
-        border: 1px solid #d1d5db !important;
-        box-shadow: none !important;
+        background: rgba(17, 24, 39, 0.85) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.6) !important;
         width: 100% !important;
         max-width: 100% !important;
-        padding: 20px !important;
-        color: #111827 !important;
+        padding: 25px !important;
+        margin-bottom: 30px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 
-    /* Ubah warna teks di dalam kartu profil agar kontras di kertas putih */
-    .sao-window h1, .sao-window span, .sao-window p {
-        color: #111827 !important;
-    }
-    .sao-window .text-gray-400 {
-        color: #4b5563 !important;
-    }
-
-    /* 4. Sembunyikan tombol aksi interaktif (karena tidak bisa diklik di kertas) */
-    .sao-action, button {
-        display: none !important;
+    /* 4. Pertahankan warna teks terang */
+    .sao-window h1, 
+    .sao-window h2, 
+    .sao-window p, 
+    .sao-window span {
+        color: #f3f4f6 !important;
     }
 
-    /* 5. Rapikan Bagian Quest Log (Proyek) agar tampil dalam grid rapi */
+    /* 5. Rapikan Bagian Quest Log (Proyek) agar tampil sejajar di cetakan */
     #quests {
+        display: block !important;
         min-height: auto !important;
         padding: 0 !important;
         margin-top: 20px !important;
     }
 
+    #quests .sao-quest-title {
+        opacity: 1 !important;
+        transform: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+        margin-bottom: 20px !important;
+        padding-bottom: 10px !important;
+    }
+    
     #quests .grid {
         display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important; /* Menjadi 2 kolom saat dicetak */
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 Kolom rapi */
         gap: 15px !important;
     }
 
     .sao-card {
         opacity: 1 !important;
         transform: none !important;
-        background-color: #f9fafb !important;
-        border: 1px solid #e5e7eb !important;
+        background: rgba(17, 24, 39, 0.75) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
         box-shadow: none !important;
-        page-break-inside: avoid; /* Mencegah kartu terpotong di tengah halaman */
-    }
-    
-    .sao-card h3 {
-        color: #111827 !important;
+        padding: 15px !important;
+        page-break-inside: avoid !important; /* Mencegah kartu terpotong */
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 }
