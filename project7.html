@@ -3,93 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 7 - NusantaraWordCraft</title>
-    <link rel="stylesheet" href="./src/output.css">
+    <title>Quest Details: Nusantara Word Craft</title>
+
+    <!-- TAILWIND CSS CDN UNTUK PORTFOLIO SAO -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <!-- Memanggil CSS Eksternal -->
+    <link rel="stylesheet" href="./style/style.css">
+
+    <!-- Font SAO-style (Ubuntu) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        /* CSS Wadah Iframe */
-        .iframe-container {
-            position: relative;
-            width: 100%;
-            height: 650px; 
-            overflow: hidden;
-            background-color: #000;
-        }
-
-        .iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* Skala asli 1.0 agar tampilan canvas presisi */
-        @media (min-width: 768px) {
-            .iframe-container iframe {
-                transform: scale(1.0); 
-                transform-origin: center center;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-brand-off-white font-sans text-brand-dark-blue">
+<body class="min-h-screen text-gray-100 p-4 md:p-8 flex justify-center items-start pt-12 md:pt-20">
 
-    <!-- Container diperlebar ke max-w-7xl agar lebih lapang -->
-    <main class="container mx-auto px-6 py-10 max-w-7xl">
+    <!-- Jendela Utama Detail Proyek -->
+    <main class="sao-window w-full max-w-6xl p-6 md:p-10 rounded-sm shadow-2xl relative animate-fade-in-sao">
         
-        <!-- Tombol Kembali ke Beranda -->
-        <a href="index.html" class="inline-block mb-8 bg-red-500 text-white font-bold py-2 px-6 rounded-lg hover:opacity-90 transition-opacity">
-            &larr; Back to Home
+        <!-- Navigasi Kembali -->
+        <a href="index.html" class="inline-flex items-center gap-2 text-cyan-400 hover:text-white font-bold uppercase tracking-widest text-xs mb-8 transition-colors border border-cyan-500/50 hover:border-white px-4 py-2 bg-cyan-950/20">
+            <span>&#9664;</span> Abort Mission (Kembali)
         </a>
 
-        <!-- Detail Proyek -->
-        <h1 class="text-3xl md:text-5xl font-black mb-4 text-brand-dark-blue">NusantaraWordCraft</h1>
-        
-        <p class="text-lg md:text-xl text-brand-mid-blue mb-4 font-semibold">
-            An Interactive Pixel Art Web Game based on Nusantara-themed Word Processing & Crafting.
-        </p>
-
-        <p class="text-base text-gray-600 mb-6">
-            <strong>NusantaraWordCraft</strong> adalah sebuah proyek <em>Front-End Web Game</em> berbasis <em>pixel art</em> interaktif yang dirancang untuk memberikan pengalaman bermain gim secara langsung melalui peramban (browser). Proyek ini berfokus pada mekanisme olah kata dan pembuatan konten bertema kebudayaan Nusantara.
-        </p>
-
-        <!-- Poin-poin Fitur Utama & Tech Stack -->
-        <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm mb-8">
-            <h3 class="font-bold text-lg text-brand-dark-blue mb-3">Key Highlights & Tech Stack:</h3>
-            <ul class="list-disc list-inside space-y-2 text-gray-600 text-sm md:text-base">
-                <li><strong>Interactive Gameplay:</strong> Menggunakan elemen Canvas / JavaScript untuk logika permainan yang responsif dan interaktif secara real-time.</li>
-                <li><strong>Nusantara Theme:</strong> Mengangkat visual gaya <em>pixel art</em> dengan aset latar belakang dan audio bertema kearifan lokal.</li>
-                <li><strong>Modern Deployment:</strong> Di-build dan di-deploy secara otomatis melalui Vercel CI/CD pipeline.</li>
-                <li><strong>Technologies Used:</strong> HTML5 Canvas, Modern JavaScript (ES6+), CSS3 / Tailwind CSS.</li>
-            </ul>
+        <!-- Header Judul Proyek -->
+        <div class="border-b border-gray-500/50 pb-6 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+                <h1 class="text-3xl md:text-5xl font-bold tracking-wider text-white mb-2">Nusantara Word Craft</h1>
+                <p class="text-cyan-400 text-sm tracking-widest uppercase">Interactive Pixel-Art Web & Android Game</p>
+            </div>
+            <div class="px-4 py-2 bg-cyan-600/20 border border-cyan-500 text-cyan-400 text-xs font-bold tracking-widest uppercase text-center shrink-0 shadow-[0_0_10px_rgba(6,182,212,0.3)]">
+                Status: In-Game / Native App
+            </div>
         </div>
 
-        <!-- Tombol Akses GitHub & Live Web Vercel -->
-        <div class="flex flex-wrap gap-4 mb-10">
-            <a href="https://nusantara-word-craft.vercel.app" target="_blank" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-md">
-                Visit Live Web Fullscreen
-            </a>
-            <a href="https://github.com/ishidxa24/NusantaraWordCraft" target="_blank" class="bg-gray-900 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors flex items-center gap-2 shadow-md">
-                View Source Code (GitHub)
-            </a>
+        <!-- Konten Proyek: 2 Kolom -->
+        <div class="flex flex-col lg:flex-row gap-10">
+
+            <!-- KOLOM KIRI: Galeri Gambar (Bisa di-scroll) -->
+            <div class="lg:w-3/5 flex flex-col gap-6 max-h-[600px] overflow-y-auto pr-3">
+                
+                <!-- Gambar 1: Menu Utama -->
+                <div class="sao-card p-2 border border-cyan-500/40 bg-black/40">
+                    <img src="./image/Nusantara/Nusantara.png" alt="Nusantara Word Craft Main Menu" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <!-- Gambar 2: Screenshot 1 -->
+                <div class="sao-card p-2 border border-cyan-500/40 bg-black/40">
+                    <img src="./image/Nusantara/Screenshot 2026-07-28 165953.png" alt="Nusantara Gameplay Screenshot 1" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <!-- Gambar 3: Screenshot 2 -->
+                <div class="sao-card p-2 border border-cyan-500/40 bg-black/40">
+                    <img src="./image/Nusantara/Screenshot 2026-07-28 170104.png" alt="Nusantara Gameplay Screenshot 2" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+
+                <!-- Gambar 4: Screenshot 3 -->
+                <div class="sao-card p-2 border border-cyan-500/40 bg-black/40">
+                    <img src="./image/Nusantara/Screenshot 2026-07-28 170228.png" alt="Nusantara Gameplay Screenshot 3" class="w-full h-auto object-contain border border-gray-800">
+                </div>
+                
+            </div>
+
+            <!-- KOLOM KANAN: Detail Penjelasan & Tech Stack -->
+            <div class="lg:w-2/5 flex flex-col gap-8">
+
+                <!-- Latar Belakang / Penjelasan -->
+                <div>
+                    <h3 class="text-lg font-bold text-white tracking-widest uppercase mb-4 flex items-center gap-3">
+                        <span class="w-2 h-2 bg-cyan-400 transform rotate-45 shadow-[0_0_5px_#22d3ee]"></span>
+                        Mission Briefing
+                    </h3>
+                    <p class="text-gray-300 text-sm leading-relaxed text-justify bg-gray-900/50 p-4 border-l-2 border-cyan-400">
+                        NusantaraWordCraft adalah proyek game berbasis <em>pixel art</em> yang mengangkat tema kebudayaan Nusantara dengan fokus pada mekanisme olah kata. Game ini dirancang sebagai aplikasi lintas platform yang dapat diakses melalui peramban web serta dikemas menjadi aplikasi Android menggunakan Capacitor.
+                    </p>
+                </div>
+
+                <!-- Key Highlights & Tech Stack -->
+                <div>
+                    <h3 class="text-lg font-bold text-white tracking-widest uppercase mb-4 flex items-center gap-3">
+                        <span class="w-2 h-2 bg-cyan-400 transform rotate-45 shadow-[0_0_5px_#22d3ee]"></span>
+                        Key Highlights & Tech Stack
+                    </h3>
+                    <ul class="text-sm text-gray-300 space-y-2 list-disc pl-5">
+                        <li><strong>Phaser Engine:</strong> Mengelola aset grafis, struktur adegan, dan logika pergerakan permainan 2D secara optimal.</li>
+                        <li><strong>Capacitor Integration:</strong> Mengonversi kode aplikasi berbasis web menjadi aplikasi mandiri untuk sistem operasi Android.</li>
+                        <li><strong>Visual & Tema:</strong> Menerapkan gaya estetika *pixel art* yang dipadukan dengan unsur kebudayaan lokal.</li>
+                    </ul>
+                </div>
+
+                <!-- Teknologi yang Digunakan -->
+                <div>
+                    <h3 class="text-lg font-bold text-white tracking-widest uppercase mb-4 flex items-center gap-3">
+                        <span class="w-2 h-2 bg-cyan-400 transform rotate-45 shadow-[0_0_5px_#22d3ee]"></span>
+                        Equipped Tools
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-600 text-xs text-white font-medium tracking-wide">Phaser Framework</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-600 text-xs text-white font-medium tracking-wide">JavaScript (ES6+)</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-600 text-xs text-white font-medium tracking-wide">Capacitor (Android)</span>
+                        <span class="px-3 py-1 bg-gray-800 border border-gray-600 text-xs text-white font-medium tracking-wide">HTML5 Canvas / CSS3</span>
+                    </div>
+                </div>
+
+                <!-- Tombol Tautan -->
+                <div class="pt-2">
+                    <a href="https://github.com/ishidxa24" target="_blank" class="sao-btn block text-center py-3 bg-cyan-600 text-white font-bold tracking-widest uppercase text-xs hover:bg-cyan-500 transition-colors shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                        Launch Game Repository
+                    </a>
+                </div>
+
+            </div>
         </div>
 
-        <!-- Web App Interaktif -->
-        <h2 class="text-2xl font-bold mb-4">Interactive Web Preview</h2>
-        <div class="iframe-container rounded-xl border border-gray-200 shadow-2xl mb-12">
-            <iframe src="https://nusantara-word-craft.vercel.app" title="NusantaraWordCraft Live Demo"></iframe>
-        </div>
-
-        <!-- Screenshot Static Backup -->
-        <h2 class="text-2xl font-bold mb-4">Screenshot Preview</h2>
-        <div class="w-full overflow-hidden rounded-xl border border-gray-200 shadow-xl bg-white mb-10">
-            <img src="./image/Nusantara/Nusantara.png" alt="Preview NusantaraWordCraft" class="w-full object-cover">
-        </div>
-        
     </main>
 
 </body>
