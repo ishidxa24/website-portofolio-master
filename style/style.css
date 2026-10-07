@@ -80,3 +80,19 @@ body {
     background: rgba(249, 115, 22, 1);
 }
 
+/* Pengaturan Cetak PDF / Print Styling */
+@media print {
+    body {
+        background-color: #000000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    /* Memastikan jendela SAO tetap mempertahankan warna gelap dan border oranye saat dicetak */
+    .sao-window {
+        background-color: #0b0f19 !important;
+        border-color: #f97316 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
