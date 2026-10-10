@@ -3,55 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project: Game Store Concept | Adi Kusuma</title>
-    <link rel="stylesheet" href="./src/output.css">
+    <title>Rektar Web Concept | Adi Kusuma</title>
+    
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    
+    <!-- Memanggil CSS Eksternal -->
+    <link rel="stylesheet" href="./style/style.css">
+    
+    <!-- Font SAO-style (Ubuntu) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-brand-off-white font-sans text-brand-dark-blue">
+<body class="min-h-screen text-gray-100 bg-black overflow-x-hidden p-4 md:p-8 pt-12 relative">
 
-    <main>
-        <header class="container max-w-5xl mx-auto px-6 py-8">
-            <nav>
-                <a href="index.html" class="inline-block bg-white text-brand-dark-blue font-bold py-2 px-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    &larr; Kembali ke Halaman Utama
-                </a>
-            </nav>
-        </header>
+    <!-- Tombol Kembali -->
+    <div class="w-full max-w-6xl mx-auto mb-6">
+        <a href="index.html#quests" class="inline-flex items-center gap-2 sao-btn bg-gray-800 border border-gray-500 text-white hover:bg-orange-600 hover:border-orange-400 py-2 px-6 text-xs font-bold uppercase tracking-widest transition-all shadow-[0_0_10px_rgba(255,255,255,0.1)]">
+            <span class="text-lg leading-none">&laquo;</span> Return to Quest Log
+        </a>
+    </div>
 
-        <section class="container max-w-5xl mx-auto px-6 py-4">
+    <!-- Jendela Utama Detail Proyek -->
+    <main class="w-full max-w-6xl mx-auto sao-window p-6 md:p-10 mb-20 relative">
+        
+        <!-- Ornamen Ujung Khas SAO -->
+        <div class="absolute w-4 h-4 bg-orange-500 border-2 border-white -top-2 -left-2 shadow-[0_0_10px_#f97316] rotate-45"></div>
+        <div class="absolute w-4 h-4 bg-orange-500 border-2 border-white -bottom-2 -right-2 shadow-[0_0_10px_#f97316] rotate-45"></div>
 
-            <h1 class="text-5xl lg:text-7xl font-black text-brand-dark-blue">Game Store Concept</h1>
-            <p class="text-xl text-brand-mid-blue mt-2">A mobile application design for purchasing digital games.</p>
-            
-            <div class="my-10 max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-4">Tentang Proyek Ini</h2>
-                <p class="text-lg text-brand-mid-blue leading-relaxed">
-                    Ini adalah desain konsep untuk sebuah toko game digital versi mobile. Fokus utama dari desain ini adalah memberikan pengalaman berbelanja yang lancar dan menyenangkan bagi para gamer, mulai dari mencari game, melihat detail, hingga proses pembelian. Desain antarmuka dibuat bersih dan modern untuk menonjolkan visual dari game yang dijual.
+        <!-- HEADER PROYEK -->
+        <div class="border-b border-gray-600/50 pb-8 mb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="px-2 py-1 bg-orange-600/20 border border-orange-500 text-orange-400 text-[10px] font-bold tracking-widest uppercase shadow-[0_0_8px_rgba(249,115,22,0.3)]">
+                    UI/UX Concept
+                </span>
+                <span class="text-gray-500 text-xs font-bold tracking-widest uppercase">ID: PRJ-003</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-widest uppercase mb-4 drop-shadow-md">Rektar Web Concept</h1>
+            <div class="max-w-4xl">
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed text-justify mb-4">
+                    Eksplorasi desain antarmuka web untuk platform informasi pariwisata dan rekreasi alam. Fokus utama perancangan ini adalah menghadirkan tampilan visual yang segar, bersih, dan mudah dipahami oleh pengguna saat mencari informasi destinasi maupun tempat menarik.
                 </p>
             </div>
+        </div>
+
+        <!-- GAMBAR UTAMA (Hero Section) -->
+        <div class="mb-12">
+            <h2 class="text-xl font-bold text-white tracking-widest uppercase mb-4 flex items-center gap-3">
+                <span class="w-2 h-2 bg-orange-500 transform rotate-45 shadow-[0_0_5px_#f97316]"></span>
+                Main Interface (Hero Section)
+            </h2>
+            <div class="w-full border border-gray-600 bg-gray-900 relative overflow-hidden group rounded-sm p-2 shadow-lg">
+                <img src="./image/rektar-web-concept/1.png" alt="Rektar Web Hero Section" class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-700 rounded-sm border border-gray-700">
+            </div>
+            <p class="text-gray-400 text-sm mt-4 italic text-center">Tampilan halaman utama menggunakan gradasi warna hijau dan biru untuk merepresentasikan nuansa alam dan luar ruangan.</p>
+        </div>
+
+        <!-- GALERI DETAIL DESAIN -->
+        <h2 class="text-xl font-bold text-white tracking-widest uppercase mb-6 flex items-center gap-3 border-b border-gray-600/50 pb-2">
+            <span class="w-2 h-2 bg-orange-500 transform rotate-45 shadow-[0_0_5px_#f97316]"></span>
+            Interface Elements & Layouts
+        </h2>
+
+        <div class="flex flex-col gap-10">
             
-             <div class="my-10">
-                <h2 class="text-3xl font-bold mb-4 text-center">Tampilan Lainnya</h2>
-                <div class="flex overflow-x-auto space-x-8 py-4">
-                    <div class="flex-none w-80">
-                        <img src="./image/Game Store/Login.png" alt="Login Screen" class="rounded-xl shadow-lg w-full h-auto border">
-                    </div>
-                    <div class="flex-none w-80">
-                        <img src="./image/Game Store/Main.png" alt="Main Screen" class="rounded-xl shadow-lg w-full h-auto border">
-                    </div>
-                    <div class="flex-none w-80">
-                        <img src="./image/Game Store/Game Theory.png" alt="Game Detail Screen" class="rounded-xl shadow-lg w-full h-auto border">
-                    </div>
-                    <div class="flex-none w-80">
-                        <img src="./image/Game Store/Sign Up.png" alt="Sign Up Screen" class="rounded-xl shadow-lg w-full h-auto border">
-                    </div>
+            <!-- Elemen 1 (Gambar 2) -->
+            <div class="flex flex-col md:flex-row gap-6 items-center bg-gray-900/30 p-4 border border-gray-800">
+                <div class="md:w-1/2">
+                    <h3 class="text-lg font-bold text-orange-400 tracking-wider mb-2 uppercase">Destinasi & Tempat Wisata</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed text-justify">
+                        Bagian ini menampilkan daftar rekomendasi tempat rekreasi dalam bentuk kartu (*card*) visual yang dilengkapi foto lokasi dan deskripsi singkat agar pengguna bisa langsung melihat pilihan tempat yang tersedia.
+                    </p>
+                </div>
+                <div class="md:w-1/2 border border-gray-600 bg-black overflow-hidden group">
+                    <img src="./image/rektar-web-concept/2.png" alt="Destination Preview" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
             </div>
 
-        </section>
+            <!-- Elemen 2 (Gambar 3) -->
+            <div class="flex flex-col md:flex-row-reverse gap-6 items-center bg-gray-900/30 p-4 border border-gray-800">
+                <div class="md:w-1/2">
+                    <h3 class="text-lg font-bold text-orange-400 tracking-wider mb-2 uppercase">Fitur & Layanan Utama</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed text-justify">
+                        Penyusunan informasi keunggulan platform menggunakan kotak-kotak menu terstruktur dengan ikon pendukung yang jelas, memudahkan pengunjung membaca poin-poin layanan yang ditawarkan.
+                    </p>
+                </div>
+                <div class="md:w-1/2 border border-gray-600 bg-black overflow-hidden group">
+                    <img src="./image/rektar-web-concept/3.png" alt="Features Preview" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+
+            <!-- Elemen 3 (Gambar 4) -->
+            <div class="flex flex-col md:flex-row gap-6 items-center bg-gray-900/30 p-4 border border-gray-800">
+                <div class="md:w-1/2">
+                    <h3 class="text-lg font-bold text-orange-400 tracking-wider mb-2 uppercase">Galeri Momen & Aktivitas</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed text-justify">
+                        Bagian galeri visual untuk menampilkan dokumentasi kegiatan atau suasana di area rekreasi, disusun secara dinamis guna memperkuat daya tarik visual situs.
+                    </p>
+                </div>
+                <div class="md:w-1/2 border border-gray-600 bg-black overflow-hidden group">
+                    <img src="./image/rektar-web-concept/4.png" alt="Gallery Preview" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+
+        </div>
+
     </main>
 
+    <!-- Memanggil script animasi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>

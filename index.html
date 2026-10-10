@@ -21,24 +21,30 @@
     <!-- === LAYAR LOADING SAO MINIMALIS === -->
     <div id="sao-loader" class="fixed inset-0 z-50 bg-black flex items-center justify-center p-4">
         <div class="w-full max-w-xs text-center">
-            <!-- Bilah Pemuatan Tipis -->
             <div class="w-full bg-gray-900 border border-orange-500/40 h-1.5 p-0.5 mb-3 relative overflow-hidden">
                 <div id="loader-bar" class="bg-orange-500 h-full w-0 shadow-[0_0_8px_#f97316]"></div>
             </div>
-            <!-- Persentase Angka -->
-            <div id="loader-percentage" class="text-[11px] font-bold text-orange-400 tracking-widest">
-                0%
+            <div id="loader-percentage" class="text-[11px] font-bold text-orange-400 tracking-widest">0%</div>
+        </div>
+    </div>
+
+    <!-- === MODAL PREVIEW PDF SAO === -->
+    <div id="sao-pdf-modal" class="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="sao-window w-full max-w-4xl h-[85vh] flex flex-col relative transform scale-95 transition-transform duration-300" id="sao-pdf-window">
+            <div class="flex justify-between items-center p-3 border-b border-gray-600/50 bg-gray-900/50">
+                <span id="pdf-modal-title" class="text-orange-400 font-bold tracking-widest uppercase text-xs md:text-sm">Preview Item</span>
+                <button onclick="closePdfPreview()" class="text-gray-400 hover:text-white hover:bg-red-600/80 px-3 py-1 border border-transparent hover:border-red-500 transition-all font-bold text-xs uppercase tracking-widest">Close [X]</button>
+            </div>
+            <div class="flex-grow p-2 bg-black/50">
+                <iframe id="pdf-modal-frame" src="" class="w-full h-full border border-gray-600/50" title="PDF Preview"></iframe>
             </div>
         </div>
     </div>
 
     <!-- BAGIAN 1: MENU UTAMA (HERO PROFILE) -->
     <section class="min-h-screen flex items-center justify-center p-4 relative">
-        
-        <!-- Jendela Menu SAO -->
         <main id="sao-container" class="sao-window relative w-full max-w-md p-6 rounded-sm opacity-0 transform scale-95">
             
-            <!-- Header -->
             <div class="sao-element flex items-center justify-between pb-3 mb-5 border-b border-gray-500/50">
                 <span class="text-xl font-bold tracking-widest uppercase text-white">Player Profile</span>
             </div>
@@ -50,7 +56,7 @@
                         <img src="./image/profile/Adi_2.jpg" alt="Adi Kusuma" class="w-full h-full object-cover">
                     </div>
                     <div>
-                        <h1 class="text-2xl font-bold mb-1 tracking-wider text-white">Muh Adi Kusuma Wiranta</h1>
+                        <h1 class="text-2xl font-bold mb-1 tracking-wider text-white">ADI KUSUMA</h1>
                         <p class="text-sm text-gray-400 mb-2">Front End Developer & UI/UX</p>
                         <div class="inline-block px-2 py-1 bg-gray-800 border border-gray-600 rounded text-xs text-orange-400 uppercase tracking-widest">
                             Zone: Jakarta
@@ -58,16 +64,13 @@
                     </div>
                 </div>
 
-                <!-- Deskripsi / Bio Profesional (Final) -->
                 <p class="text-xs md:text-sm text-gray-300 leading-relaxed bg-black/40 p-3 border border-gray-700/60 rounded-sm">
-                    Front-End Developer & UI/UX yang sedang mendalami React.js dan Vue.js, serta aktif merancang aplikasi web dan sedang mempelajari game development.
+                    Front-End Developer & UI/UX yang sedang mendalami React.js dan Vue.js, serta aktif merancang aplikasi web dan game interaktif.
                 </p>
             </div>
 
             <!-- Daftar Keahlian / Status -->
             <div class="mb-8 flex flex-col gap-3">
-                
-                <!-- Skill 1 -->
                 <div class="sao-skill opacity-0 sao-menu-item p-3 cursor-pointer flex flex-col gap-1.5">
                     <div class="flex justify-between items-center text-sm">
                         <span class="font-medium tracking-wide">HTML & CSS3</span>
@@ -78,7 +81,6 @@
                     </div>
                 </div>
 
-                <!-- Skill 2 -->
                 <div class="sao-skill opacity-0 sao-menu-item p-3 cursor-pointer flex flex-col gap-1.5">
                     <div class="flex justify-between items-center text-sm">
                         <span class="font-medium tracking-wide">JS & React</span>
@@ -89,7 +91,6 @@
                     </div>
                 </div>
 
-                <!-- Skill 3 -->
                 <div class="sao-skill opacity-0 sao-menu-item p-3 cursor-pointer flex flex-col gap-1.5">
                     <div class="flex justify-between items-center text-sm">
                         <span class="font-medium tracking-wide">Figma (UI/UX)</span>
@@ -99,7 +100,6 @@
                         <div class="bg-orange-500 h-full w-[70%] shadow-[0_0_8px_#f97316]"></div>
                     </div>
                 </div>
-
             </div>
 
             <!-- Tombol Aksi Khas SAO -->
@@ -110,11 +110,9 @@
                 <a href="https://github.com/ishidxa24" target="_blank" class="sao-btn sao-action opacity-0 text-center py-3 px-4 border border-gray-400 hover:bg-gray-100 hover:text-black transition-all font-bold tracking-widest uppercase text-xs">
                     Inventory (GitHub)
                 </a>
-                <!-- Tombol Kontak via Gmail (Aman dari Bot Scraper) -->
                 <button onclick="openGmail()" class="sao-btn sao-action opacity-0 w-full text-center py-3 px-4 bg-orange-600 text-white hover:bg-orange-500 transition-colors font-bold tracking-widest uppercase text-xs shadow-[0_0_10px_rgba(249,115,22,0.4)] cursor-pointer">
                     Contact via Gmail
                 </button>
-                <!-- Tombol Kontak via WhatsApp (Aman dari Bot Scraper) -->
                 <button onclick="openWhatsApp()" class="sao-btn sao-action opacity-0 w-full text-center py-3 px-4 bg-green-600 text-white hover:bg-green-500 transition-colors font-bold tracking-widest uppercase text-xs shadow-[0_0_10px_rgba(34,197,94,0.4)] cursor-pointer">
                     Contact via WhatsApp
                 </button>
@@ -122,10 +120,128 @@
         </main>
     </section>
 
-    <!-- BAGIAN 2: PROYEK (QUEST LOG) -->
-    <section id="quests" class="min-h-screen w-full max-w-6xl mx-auto p-6 pt-24 pb-20 relative z-10">
+    <!-- BAGIAN 2: BATTLE LOG (RIWAYAT PENDIDIKAN & BOOTCAMP) -->
+    <section id="journey" class="w-full max-w-6xl mx-auto p-6 pt-10 pb-10 relative z-10">
         
-        <!-- Judul Bagian -->
+        <div class="sao-quest-title opacity-0 flex items-center gap-4 mb-10 border-b border-gray-500/50 pb-4">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-widest uppercase text-white">Battle Log</h2>
+            <span class="px-3 py-1 bg-blue-600/20 border border-blue-500 text-blue-400 text-xs font-bold tracking-widest uppercase shadow-[0_0_8px_rgba(59,130,246,0.4)]">
+                History
+            </span>
+        </div>
+
+        <div class="relative border-l-2 border-gray-600 ml-4 md:ml-8 pl-8 space-y-10">
+            
+            <!-- Riwayat 1: Pendidikan Gunadarma -->
+            <div class="sao-card opacity-0 sao-window p-6 relative">
+                <div class="absolute w-4 h-4 bg-orange-500 border-2 border-white top-6 -left-[41px] shadow-[0_0_10px_#f97316] rotate-45 transform -translate-y-1/2"></div>
+                
+                <h3 class="text-xl font-bold text-white tracking-wider mb-1">Universitas Gunadarma</h3>
+                <p class="text-sm font-bold text-orange-400 mb-3">S1 Informatika <span class="text-gray-500 ml-2">| 2022 - 2026</span></p>
+                <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                    Menyelesaikan pendidikan tinggi di program studi Informatika. Mempelajari algoritma, struktur data, pengembangan perangkat lunak, serta membangun fondasi kuat dalam sistem informasi.
+                </p>
+
+                <div class="border-t border-gray-600/50 pt-4">
+                    <h4 class="text-xs font-bold text-gray-300 uppercase tracking-widest mb-4">Unlocked Achievements</h4>
+                    <div class="flex flex-col md:flex-row flex-wrap gap-4">
+                        <div onclick="openPdfPreview('./sertif/Basic Web Application Development.pdf', 'Dasar Pembuatan Aplikasi Web - Universitas Gunadarma')" class="flex items-center gap-3 bg-gray-800/80 border border-gray-600 p-2 hover:border-orange-500 hover:bg-gray-700 transition-all group w-full md:w-[calc(50%-0.5rem)] cursor-pointer">
+                            <div class="w-8 h-8 bg-gray-900 border border-gray-600 group-hover:border-orange-500 flex items-center justify-center shrink-0 transition-colors">
+                                <div class="w-2 h-2 bg-gray-500 group-hover:bg-orange-500 rotate-45 transition-colors"></div>
+                            </div>
+                            <div class="pr-3 overflow-hidden">
+                                <p class="text-xs font-bold text-gray-200 group-hover:text-orange-400 tracking-wide transition-colors truncate">Dasar Pembuatan Aplikasi Web</p>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest">Universitas Gunadarma</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Riwayat 2: Bootcamp Program Asah -->
+            <div class="sao-card opacity-0 sao-window p-6 relative">
+                <div class="absolute w-4 h-4 bg-orange-500 border-2 border-white top-6 -left-[41px] shadow-[0_0_10px_#f97316] rotate-45 transform -translate-y-1/2"></div>
+                
+                <h3 class="text-xl font-bold text-white tracking-wider mb-1">Program Asah</h3>
+                <p class="text-sm font-bold text-orange-400 mb-3">Dicoding x Accenture <span class="text-gray-500 ml-2">| Lulus: Jan 2026</span></p>
+                <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                    Menyelesaikan program pelatihan komprehensif terkait Front-End Web & Back-End dengan integrasi Artificial Intelligence (AI).
+                </p>
+
+                <div class="border-t border-gray-600/50 pt-4">
+                    <h4 class="text-xs font-bold text-gray-300 uppercase tracking-widest mb-4">Unlocked Achievements</h4>
+                    <div class="flex flex-col md:flex-row flex-wrap gap-4">
+                        <div onclick="openPdfPreview('./sertif/Asah Dicoding.pdf', 'Front-End & Back-End with AI - Dicoding x Accenture')" class="flex items-center gap-3 bg-gray-800/80 border border-gray-600 p-2 hover:border-orange-500 hover:bg-gray-700 transition-all group w-full md:w-[calc(50%-0.5rem)] cursor-pointer">
+                            <div class="w-8 h-8 bg-gray-900 border border-gray-600 group-hover:border-orange-500 flex items-center justify-center shrink-0 transition-colors">
+                                <div class="w-2 h-2 bg-gray-500 group-hover:bg-orange-500 rotate-45 transition-colors"></div>
+                            </div>
+                            <div class="pr-3 overflow-hidden">
+                                <p class="text-xs font-bold text-gray-200 group-hover:text-orange-400 tracking-wide transition-colors truncate">Front-End & Back-End with AI</p>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest">Dicoding x Accenture</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Riwayat 3: Bootcamp Coding Camp -->
+            <div class="sao-card opacity-0 sao-window p-6 relative">
+                <div class="absolute w-4 h-4 bg-orange-500 border-2 border-white top-6 -left-[41px] shadow-[0_0_10px_#f97316] rotate-45 transform -translate-y-1/2"></div>
+                
+                <h3 class="text-xl font-bold text-white tracking-wider mb-1">Coding Camp</h3>
+                <p class="text-sm font-bold text-orange-400 mb-3">Dicoding x DBS Foundation <span class="text-gray-500 ml-2">| Feb - Jul 2025</span></p>
+                <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                    Lulus penuh dari program beasiswa intensif dengan spesialisasi pengembangan Front-End dan Back-End Developer.
+                </p>
+
+                <div class="border-t border-gray-600/50 pt-4">
+                    <h4 class="text-xs font-bold text-gray-300 uppercase tracking-widest mb-4">Unlocked Achievements</h4>
+                    <div class="flex flex-col md:flex-row flex-wrap gap-4">
+                        <div onclick="openPdfPreview('./sertif/coding camp.pdf', 'Front-End & Back-End Developer - Dicoding x DBS Foundation')" class="flex items-center gap-3 bg-gray-800/80 border border-gray-600 p-2 hover:border-orange-500 hover:bg-gray-700 transition-all group w-full md:w-[calc(50%-0.5rem)] cursor-pointer">
+                            <div class="w-8 h-8 bg-gray-900 border border-gray-600 group-hover:border-orange-500 flex items-center justify-center shrink-0 transition-colors">
+                                <div class="w-2 h-2 bg-gray-500 group-hover:bg-orange-500 rotate-45 transition-colors"></div>
+                            </div>
+                            <div class="pr-3 overflow-hidden">
+                                <p class="text-xs font-bold text-gray-200 group-hover:text-orange-400 tracking-wide transition-colors truncate">Front-End & Back-End Developer</p>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest">Dicoding x DBS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Riwayat 4: Pelatihan IDN.ID -->
+            <div class="sao-card opacity-0 sao-window p-6 relative">
+                <div class="absolute w-4 h-4 bg-orange-500 border-2 border-white top-6 -left-[41px] shadow-[0_0_10px_#f97316] rotate-45 transform -translate-y-1/2"></div>
+                
+                <h3 class="text-xl font-bold text-white tracking-wider mb-1">Web Programming Basic Training</h3>
+                <p class="text-sm font-bold text-orange-400 mb-3">IDN.ID Training Center <span class="text-gray-500 ml-2">| Mei 2025</span></p>
+                <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                    Mengikuti pelatihan pengembangan web fundamental HTML, CSS, JavaScript, serta pengolahan data PHP.
+                </p>
+
+                <div class="border-t border-gray-600/50 pt-4">
+                    <h4 class="text-xs font-bold text-gray-300 uppercase tracking-widest mb-4">Unlocked Achievements</h4>
+                    <div class="flex flex-col md:flex-row flex-wrap gap-4">
+                        <div onclick="openPdfPreview('./sertif/Pelatihan Web.pdf', 'Web Programming Basic Training - IDN.ID Training Center')" class="flex items-center gap-3 bg-gray-800/80 border border-gray-600 p-2 hover:border-orange-500 hover:bg-gray-700 transition-all group w-full md:w-[calc(50%-0.5rem)] cursor-pointer">
+                            <div class="w-8 h-8 bg-gray-900 border border-gray-600 group-hover:border-orange-500 flex items-center justify-center shrink-0 transition-colors">
+                                <div class="w-2 h-2 bg-gray-500 group-hover:bg-orange-500 rotate-45 transition-colors"></div>
+                            </div>
+                            <div class="pr-3 overflow-hidden">
+                                <p class="text-xs font-bold text-gray-200 group-hover:text-orange-400 tracking-wide transition-colors truncate">Web Programming Basic Training</p>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest">IDN.ID Training Center</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BAGIAN 3: PROYEK (QUEST LOG) -->
+    <section id="quests" class="min-h-screen w-full max-w-6xl mx-auto p-6 pt-10 pb-20 relative z-10">
+        
         <div class="sao-quest-title opacity-0 flex items-center gap-4 mb-10 border-b border-gray-500/50 pb-4">
             <h2 class="text-3xl md:text-4xl font-bold tracking-widest uppercase text-white">Quest Log</h2>
             <span class="px-3 py-1 bg-orange-600/20 border border-orange-500 text-orange-400 text-xs font-bold tracking-widest uppercase shadow-[0_0_8px_rgba(249,115,22,0.4)]">
@@ -133,10 +249,9 @@
             </span>
         </div>
 
-        <!-- Grid Daftar Proyek -->
+        <!-- 5 PROYEK (Sudah Termasuk Rektar Web Concept & Gambar Dicoding Diperbaiki) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            <!-- Proyek 1: Letterboxd -->
             <div class="sao-card opacity-0 sao-window p-4 flex flex-col group cursor-pointer">
                 <div class="w-full h-48 overflow-hidden border border-gray-600 mb-4 relative">
                     <div class="absolute top-2 right-2 bg-black/80 px-2 py-1 text-[10px] text-orange-400 border border-orange-500 uppercase tracking-widest z-10">UI/UX</div>
@@ -147,7 +262,6 @@
                 <a href="project1.html" class="sao-btn text-center py-2 bg-gray-800 border border-gray-500 text-white group-hover:bg-orange-600 group-hover:border-orange-400 transition-all text-xs font-bold tracking-widest uppercase">Inspect Data</a>
             </div>
 
-            <!-- Proyek 2: Rektar -->
             <div class="sao-card opacity-0 sao-window p-4 flex flex-col group cursor-pointer">
                 <div class="w-full h-48 overflow-hidden border border-gray-600 mb-4 relative">
                     <div class="absolute top-2 right-2 bg-black/80 px-2 py-1 text-[10px] text-orange-400 border border-orange-500 uppercase tracking-widest z-10">UI/UX</div>
@@ -158,18 +272,16 @@
                 <a href="project2.html" class="sao-btn text-center py-2 bg-gray-800 border border-gray-500 text-white group-hover:bg-orange-600 group-hover:border-orange-400 transition-all text-xs font-bold tracking-widest uppercase">Inspect Data</a>
             </div>
 
-            <!-- Proyek 3: Dicoding Remake Design Asah -->
             <div class="sao-card opacity-0 sao-window p-4 flex flex-col group cursor-pointer">
                 <div class="w-full h-48 overflow-hidden border border-gray-600 mb-4 relative">
                     <div class="absolute top-2 right-2 bg-black/80 px-2 py-1 text-[10px] text-orange-400 border border-orange-500 uppercase tracking-widest z-10">UI/UX</div>
-                    <img src="./image/Dicoding Asah Project/Login.png" alt="Dicoding Remake Design Asah" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <img src="./image/dicoding-asah-project/login.png" alt="Dicoding Remake Design Asah" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                 </div>
                 <h3 class="text-lg font-bold text-white tracking-wider mb-2">Dicoding Remake Design Asah</h3>
                 <p class="text-sm text-gray-400 mb-6 flex-grow leading-relaxed">A UI/UX redesign concept and interactive prototype platform.</p>
                 <a href="project5.html" class="sao-btn text-center py-2 bg-gray-800 border border-gray-500 text-white group-hover:bg-orange-600 group-hover:border-orange-400 transition-all text-xs font-bold tracking-widest uppercase">Inspect Data</a>
             </div>
 
-            <!-- Proyek 4: NusantaraWordCraft -->
             <div class="sao-card opacity-0 sao-window p-4 flex flex-col group cursor-pointer">
                 <div class="w-full h-48 overflow-hidden border border-gray-600 mb-4 relative">
                     <div class="absolute top-2 right-2 bg-black/80 px-2 py-1 text-[10px] text-cyan-400 border border-cyan-500 uppercase tracking-widest z-10">Web Game</div>
@@ -180,13 +292,22 @@
                 <a href="project7.html" class="sao-btn text-center py-2 bg-gray-800 border border-gray-500 text-white group-hover:bg-orange-600 group-hover:border-orange-400 transition-all text-xs font-bold tracking-widest uppercase">Inspect Data</a>
             </div>
 
+            <!-- PROYEK 5: REKTAR WEB CONCEPT -->
+            <div class="sao-card opacity-0 sao-window p-4 flex flex-col group cursor-pointer">
+                <div class="w-full h-48 overflow-hidden border border-gray-600 mb-4 relative">
+                    <div class="absolute top-2 right-2 bg-black/80 px-2 py-1 text-[10px] text-orange-400 border border-orange-500 uppercase tracking-widest z-10">UI/UX</div>
+                    <img src="./image/rektar-web-concept/1.png" alt="Rektar Web Concept" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <h3 class="text-lg font-bold text-white tracking-wider mb-2">Rektar Web Concept</h3>
+                <p class="text-sm text-gray-400 mb-6 flex-grow leading-relaxed">A UI/UX design concept for the Rektar web platform.</p>
+                <a href="project3.html" class="sao-btn text-center py-2 bg-gray-800 border border-gray-500 text-white group-hover:bg-orange-600 group-hover:border-orange-400 transition-all text-xs font-bold tracking-widest uppercase">Inspect Data</a>
+            </div>
+
         </div>
     </section>
 
-    <!-- ANIME.JS CDN -->
+    <!-- Memanggil file script JS eksternal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
-    
-    <!-- Memanggil logika animasi Anda dari berkas eksternal -->
     <script src="./main.js"></script>
 </body>
 </html>
