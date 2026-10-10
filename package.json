@@ -1,7 +1,6 @@
 {
   "dependencies": {
-    "@tailwindcss/cli": "^4.3.3",
-    "animejs": "^4.5.0",
+    "@tailwindcss/cli": "^4.3.0",
     "tailwindcss": "^4.3.3"
   },
   "name": "website-portofolio-master",

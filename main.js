@@ -12,7 +12,7 @@ const CFG = {
 
     preview: {
         ids: { modal: "sao-pdf-modal", window: "sao-pdf-window", frame: "pdf-modal-frame", title: "pdf-modal-title" },
-        prefix: "Data: ",
+        prefix: "",
         openDelay: 10,
         closeDuration: 300,       // samakan dengan transition CSS (ms)
         closeOnEsc: true,
@@ -45,8 +45,24 @@ const $ = (id) => document.getElementById(id);
 const P = CFG.preview, PDF = CFG.pdf;
 
 /* ===================== LOADER ===================== */
+// Aman dipakai di halaman mana pun: tanpa loader / tanpa anime.js, script tidak error.
+const ANIMATED = "#sao-container,.sao-element,.sao-skill,.sao-action,.sao-quest-title,.sao-card";
+
+function showWithoutAnimation(loader) {
+    loader.style.display = "none";
+    document.querySelectorAll(ANIMATED).forEach((el) => {
+        el.style.opacity = 1;
+        el.style.scale = "1";
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    initPreviewSystem();
+
     const bar = $("loader-bar"), pct = $("loader-percentage"), loader = $("sao-loader");
+    if (!loader) return;                                                  // halaman tanpa loader
+    if (typeof anime === "undefined") return showWithoutAnimation(loader); // anime.js gagal dimuat
+
     const progress = { value: 0 };
 
     anime.timeline({ easing: "easeInOutQuad" })
@@ -56,8 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
             duration: CFG.loader.bar,
             update: () => {
                 const v = Math.floor(progress.value);
-                bar.style.width = v + "%";
-                pct.innerHTML = v + "%";
+                if (bar) bar.style.width = v + "%";
+                if (pct) pct.innerHTML = v + "%";
             }
         })
         .add({
@@ -69,8 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 startMainPortfolioAnimation();
             }
         });
-
-    initPreviewSystem();
 });
 
 /* ===================== KONTAK ===================== */

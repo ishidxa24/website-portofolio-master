@@ -53,7 +53,7 @@ body {
     clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
 }
 
-/* --- TAMBAHAN UNTUK PROJECT (QUESTS) --- */
+/* --- TAMBAHAN UNTUK KARTU PROYEK --- */
 
 /* Efek Kartu Proyek */
 .sao-card {
@@ -81,7 +81,7 @@ body {
 }
 
 /* === PENGATURAN KHUSUS CETAK PDF / PRINT === */
-@/* === PENGATURAN CETAK PDF: PERTAHANKAN TEMA GELAP SAO === */
+/* === PENGATURAN CETAK PDF: PERTAHANKAN TEMA GELAP SAO === */
 @media print {
     /* 1. Pertahankan latar belakang gelap khas SAO */
     html, body {
@@ -125,15 +125,15 @@ body {
         color: #f3f4f6 !important;
     }
 
-    /* 5. Rapikan Bagian Quest Log (Proyek) agar tampil sejajar di cetakan */
-    #quests {
+    /* 5. Rapikan bagian Proyek agar tampil sejajar di cetakan */
+    #proyek {
         display: block !important;
         min-height: auto !important;
         padding: 0 !important;
         margin-top: 20px !important;
     }
 
-    #quests .sao-quest-title {
+    #proyek .sao-quest-title {
         opacity: 1 !important;
         transform: none !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
@@ -141,7 +141,7 @@ body {
         padding-bottom: 10px !important;
     }
     
-    #quests .grid {
+    #proyek .grid {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important; /* 2 Kolom rapi */
         gap: 15px !important;
