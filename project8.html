@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Lost &amp; Found | Porto Adi Kusuma</title>
+
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <!-- CSS Eksternal -->
+    <link rel="stylesheet" href="./style/style.css">
+
+    <!-- Font SAO-style (Ubuntu) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Desain web biasanya memanjang: tampilkan selebar modal lalu bisa di-scroll */
+        #sao-pdf-window .flex-grow { min-height: 0; overflow-y: auto !important; }
+        #sao-pdf-window .flex-grow > img { height: auto !important; }
+    </style>
+</head>
+<body class="min-h-screen text-gray-100 bg-black overflow-x-hidden">
+
+    <!-- === MODAL PRATINJAU === -->
+    <div id="sao-pdf-modal" class="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="sao-window w-full max-w-4xl h-[85vh] flex flex-col relative transform scale-95 transition-transform duration-300" id="sao-pdf-window">
+            <div class="flex justify-between items-center p-3 border-b border-gray-600/50 bg-gray-900/50">
+                <span id="pdf-modal-title" class="text-orange-400 font-bold tracking-widest uppercase text-xs md:text-sm">Pratinjau</span>
+                <button onclick="closePdfPreview()" class="text-gray-400 hover:text-white hover:bg-red-600/80 px-3 py-1 border border-transparent hover:border-red-500 transition-all font-bold text-xs uppercase tracking-widest">Tutup</button>
+            </div>
+            <div class="flex-grow p-2 bg-black/50">
+                <iframe id="pdf-modal-frame" src="" class="w-full h-full border border-gray-600/50" title="Preview"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <main class="w-full max-w-6xl mx-auto p-6 pt-10 pb-20 relative z-10">
+
+        <a id="back-link" href="index.html#proyek" class="sao-btn inline-block mb-8 py-2 px-4 border border-gray-400 hover:bg-gray-100 hover:text-black transition-all font-bold tracking-widest uppercase text-xs">
+            &larr; Kembali
+        </a>
+
+        <!-- JUDUL -->
+        <header class="flex flex-wrap items-center gap-4 mb-8 border-b border-gray-500/50 pb-4">
+            <h1 id="project-title" class="text-3xl md:text-4xl font-bold tracking-widest uppercase text-white"></h1>
+            <span id="project-tag" class="px-3 py-1 bg-orange-600/20 border border-orange-500 text-orange-400 text-xs font-bold tracking-widest uppercase shadow-[0_0_8px_rgba(249,115,22,0.4)]"></span>
+        </header>
+
+        <!-- RINGKASAN -->
+        <section id="project-info" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14"></section>
+
+        <!-- GALERI -->
+        <div id="project-gallery" class="flex flex-col gap-14"></div>
+    </main>
+
+    <script>
+        /* ===================== KONFIGURASI HALAMAN ===================== */
+        const PROJECT_CFG = {
+            title: "Website Lost & Found",
+            tag: "UI/UX",
+            basePath: "./image/Lost & Found/",
+            showMissing: true, // true: gambar yang gagal dimuat menampilkan nama file-nya
+
+            info: [
+                { title: "Masalah", text: "Mahasiswa kesulitan mencari barang hilang atau melaporkan barang temuan di area kampus, sehingga barang penting jarang kembali ke pemiliknya." },
+                { title: "Target Pengguna", text: "Mahasiswa dan pengunjung kampus yang kehilangan atau menemukan barang." },
+                { title: "Solusi", text: "Website untuk mencari barang, mengajukan klaim, serta melaporkan kehilangan dan temuan melalui alur yang jelas. Didesain di Figma." }
+            ],
+
+            sections: [
+                {
+                    title: "Halaman Pengguna",
+                    desc: "Alur untuk mencari barang, mengajukan klaim, dan membuat laporan.",
+                    screens: [
+                        { file: "01 Home.png", label: "Home" },
+                        { file: "02 Cari Barang.png", label: "Cari Barang" },
+                        { file: "03 Detail Barang.png", label: "Detail Barang" },
+                        { file: "04 Klaim Barang.png", label: "Klaim Barang" },
+                        { file: "05 Klaim Terkirim.png", label: "Klaim Terkirim" },
+                        { file: "06 Tidak Ditemukan.png", label: "Tidak Ditemukan" },
+                        { file: "07 Lapor Kehilangan.png", label: "Lapor Kehilangan" },
+                        { file: "LaporTemuan.png", label: "Lapor Temuan - Info" },
+                        { file: "LaporTemuan_Lokasi.png", label: "Lapor Temuan - Lokasi" },
+                        { file: "LaporTemuan_Kontak.png", label: "Lapor Temuan - Kontak" },
+                        { file: "11 Laporan Terkirim.png", label: "Laporan Terkirim" },
+                        { file: "12 Bantuan.png", label: "Bantuan" }
+                    ]
+                }
+            ]
+        };
+
+        /* ===================== RENDER HALAMAN ===================== */
+        (() => {
+            const cfg = PROJECT_CFG;
+
+            const make = (tag, className, text) => {
+                const el = document.createElement(tag);
+                if (className) el.className = className;
+                if (text !== undefined) el.textContent = text;
+                return el;
+            };
+
+            function createInfoCard(item) {
+                const card = make("article", "sao-window p-5");
+                card.append(
+                    make("h2", "text-sm font-bold text-orange-400 uppercase tracking-widest mb-3", item.title),
+                    make("p", "text-sm text-gray-300 leading-relaxed", item.text)
+                );
+                return card;
+            }
+
+            function createScreenCard(screen) {
+                const path = cfg.basePath + screen.file;
+                const card = make("button", "sao-window p-3 flex flex-col text-left group cursor-pointer");
+                card.type = "button";
+                card.dataset.preview = path;
+                card.dataset.previewTitle = screen.label;
+                card.dataset.previewType = "image";
+
+                const frame = make("div", "w-full aspect-[16/10] overflow-hidden border border-gray-600 mb-3 bg-gray-900 relative");
+                const img = make("img", "w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500");
+                img.src = encodeURI(path);
+                img.alt = "Desain " + screen.label;
+                img.loading = "lazy";
+                img.onerror = () => {
+                    console.warn("Gambar tidak ditemukan:", path);
+                    if (!cfg.showMissing) return card.remove();
+                    card.removeAttribute("data-preview");
+                    frame.replaceChildren(make("div", "w-full h-full flex items-center justify-center p-3 text-center text-xs text-red-400", "File tidak ditemukan: " + screen.file));
+                };
+                frame.appendChild(img);
+
+                card.append(frame, make("h3", "text-sm font-bold text-white tracking-wider group-hover:text-orange-400 transition-colors", screen.label));
+                return card;
+            }
+
+            function createSection(section) {
+                const wrap = make("section");
+                const grid = make("div", "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5");
+                grid.append(...section.screens.map(createScreenCard));
+                wrap.append(
+                    make("h2", "text-xl md:text-2xl font-bold tracking-widest uppercase text-white mb-2", section.title),
+                    make("p", "text-sm text-gray-400 mb-6", section.desc),
+                    grid
+                );
+                return wrap;
+            }
+
+            document.getElementById("project-title").textContent = cfg.title;
+            document.getElementById("project-tag").textContent = cfg.tag;
+            document.getElementById("project-info").append(...cfg.info.map(createInfoCard));
+            document.getElementById("project-gallery").append(...cfg.sections.map(createSection));
+        })();
+    </script>
+
+    <!-- anime.js tidak diperlukan di halaman ini; main.js tetap aman tanpa loader -->
+    <script src="./main.js"></script>
+</body>
+</html>
